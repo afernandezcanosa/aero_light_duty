@@ -1,0 +1,90 @@
+VERSION ""
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+
+BS_:
+
+BU_: 
+
+
+BO_ 357 HS_CAN__165: 8 Vector__XXX
+ SG_ Pedal_kickdown_switch_CAN__ : 32|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Pedal_brake_switch_CAN__ : 7|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Trans_drive_ratio_CAN__ : 55|16@0+ (0.0010375,0) [0|65535] ":1" Vector__XXX
+
+BO_ 359 HS_CAN__167: 8 Vector__XXX
+ SG_ Pedal_accel_pos_CAN_per_ : 7|8@0+ (0.4,0) [0|102] "%" Vector__XXX
+ SG_ Eng_torque_actual_CAN_Nm_ : 39|11@0+ (1,-500) [-500|1547] "Nm" Vector__XXX
+
+BO_ 158 HS_CAN__9E: 8 Vector__XXX
+ SG_ Trans_downshift_manual_command_CAN__ : 12|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Trans_upshift_manual_command_CAN__ : 14|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Trans_manual_mode_engaged_CAN__ : 10|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Veh_sport_mode_CAN__ : 60|1@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 305 HS_CAN__131: 8 Vector__XXX
+ SG_ Trans_PRNDL_pos_CAN__ : 11|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Trans_manual_mode_CAN__ : 23|1@0+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 529 HS_CAN__211: 8 Vector__XXX
+ SG_ Veh_traction_control_off_CAN__ : 55|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Veh_traction_control_active_CAN__ : 53|1@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1056 msg420: 8 Vector__XXX
+ SG_ Eng_coolant_temp_CAN_C_ : 7|8@0+ (1,-40) [-40|216] "" Vector__XXX
+ SG_ Eng_fuel_flow_integrated_CAN__ : 23|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 1114 msg45A: 8 Vector__XXX
+ SG_ 12VBatt_temp_CAN_C_ : 39|8@0+ (1,-40) [-40|216] "" Vector__XXX
+
+BO_ 533 msg215: 8 Vector__XXX
+ SG_ Veh_wheel_speed_RR_CAN_kph_ : 55|16@0+ (0.01,-100) [-427.68|227.68] "" Vector__XXX
+ SG_ Veh_wheel_speed_FL_CAN_kph_ : 7|16@0+ (0.01,-100) [-427.68|227.68] "" Vector__XXX
+ SG_ Veh_wheel_speed_RL_CAN_kph_ : 39|16@0+ (0.01,-100) [-427.68|227.68] "" Vector__XXX
+ SG_ Veh_wheel_speed_FR_CAN_kph_ : 23|16@0+ (0.01,-100) [-100|555.36] "" Vector__XXX
+
+BO_ 535 msg217: 8 Vector__XXX
+ SG_ Veh_speed_CAN_kph_ : 39|16@0+ (0.01,0) [0|655.36] "" Vector__XXX
+
+BO_ 514 msg202: 8 Vector__XXX
+ SG_ Eng_speed_CAN_rpm_ : 7|16@0+ (0.25,0) [0|16384] "" Vector__XXX
+
+BO_ 552 HS_CAN__228: 2 Vector__XXX
+ SG_ Trans_gear_actual_CAN__ : 7|4@0+ (1,0) [0|15] "" Vector__XXX
+ SG_ Trans_shift_in_progress_CAN__ : 8|1@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Trans_in_manual_mode_CAN__ : 15|1@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 134 HS_CAN__86: 2 Vector__XXX
+ SG_ Veh_steering_wheel_pos_CAN__ : 7|16@0+ (1,-16636) [-32000|33535] "" Vector__XXX
+
+
+BA_DEF_ SG_  "SignalType" STRING ;
+BA_DEF_DEF_  "SignalType" "";
+

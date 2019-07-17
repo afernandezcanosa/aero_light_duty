@@ -1,0 +1,49 @@
+VERSION ""
+
+BO_ 1874 DISTANCE_INFO_LEDDAR_1: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+ 
+BO_ 1875 DISTANCE_INFO_LEDDAR_2: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1876 DISTANCE_INFO_LEDDAR_3: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1877 DISTANCE_INFO_LEDDAR_4: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1878 DISTANCE_INFO_LEDDAR_5: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1879 DISTANCE_INFO_LEDDAR_6: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1880 DISTANCE_INFO_LEDDAR_7: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
+
+BO_ 1881 DISTANCE_INFO_LEDDAR_8: 8 XXX
+ SG_ lidar_distance_m : 0|16@1+ (0.01,0) [0|655.35] "m" XXX
+ SG_ lidar_amplitude : 16|16@1+ (0.015625,0) [0|1023.984375] "" XXX
+ SG_ flag_information : 32|16@1+ (1,0) [0|1] "" XXX
+ SG_ lidar_channel : 48|16@1+ (1,0) [0|7] "" XXX
