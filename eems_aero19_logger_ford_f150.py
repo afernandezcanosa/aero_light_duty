@@ -105,7 +105,7 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
         if filename == None:
             filename = datetime.now().strftime("%Y%m%d%H%M%S") + 'output.csv'
         else:
-            filename = datetime.now().strftime("%Y%m%d%H%M%S") + filename
+            filename = datetime.now().strftime("%Y%m%d%H%M%S") + filename + '.csv'
         df.to_csv(filename, index = False)
         
         # Print and plot results in the screen
