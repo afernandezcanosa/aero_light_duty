@@ -62,7 +62,7 @@ BO_ 1056 msg420: 8 Vector__XXX
  SG_ Eng_fuel_flow_integrated_CAN__ : 23|8@0+ (1,0) [0|255] "" Vector__XXX
 
 BO_ 1114 msg45A: 8 Vector__XXX
- SG_ 12VBatt_temp_CAN_C_ : 39|8@0+ (1,-40) [-40|216] "" Vector__XXX
+ SG_ V12Batt_temp_CAN_C_ : 39|8@0+ (1,-40) [-40|216] "" Vector__XXX
 
 BO_ 533 msg215: 8 Vector__XXX
  SG_ Veh_wheel_speed_RR_CAN_kph_ : 55|16@0+ (0.01,-100) [-427.68|227.68] "" Vector__XXX
