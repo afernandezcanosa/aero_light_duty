@@ -14,6 +14,20 @@ It is written in python and uses commercial hardware.
 
 This National Instrument device is connected to a laptop through USB and is used to read voltage analog measurements from the axle torque sensors and send voltages to the acceleration pedal of the car.
 
+### 2. Comma AI Grey Panda CAN interface
+
+<img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/grey_panda.jpg"
+     style="float: left; margin-right: 10px"
+	 width="250"
+	 height="166"/>
+	 
+### 3. Comma AI White Panda CAN interface
+
+<img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/white_panda.jpeg"
+     style="float: left; margin-right: 10px"
+	 width="250"
+	 height="250"/>
+
 ## Data Acquisition scripts
 
 |      Vehicle     |                Code               |                   Status                  |
