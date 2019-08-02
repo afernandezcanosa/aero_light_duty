@@ -9,8 +9,9 @@ It is written in python and uses commercial hardware.
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/nidaq_mx.jpg"
      style="float: left; margin-right: 10px"
-	 width="200"
-	 height="180" />
+	 width="250"
+	 height="225"
+	 align='center' />
 
 ## Data Acquisition scripts
 
