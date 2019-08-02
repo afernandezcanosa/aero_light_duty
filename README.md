@@ -21,12 +21,16 @@ This National Instrument device is connected to a laptop through USB and is used
 	 width="250"
 	 height="166"/>
 	 
+The Grey Panda is a CAN shield sold by CommaAI that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. Furthermore, the grey panda can read high-precission GPS coordinates via its serial port. Therefore, the grey panda is used to collect data.
+	 
 ### 3. Comma AI White Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/white_panda.jpeg"
      style="float: left; margin-right: 10px"
-	 width="250"
-	 height="250"/>
+	 width="200"
+	 height="200"/>
+	 
+The White Panda is a CAN shield sold by CommaAI that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
 
 ## Data Acquisition scripts
 
