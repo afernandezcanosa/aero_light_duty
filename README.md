@@ -9,7 +9,7 @@ It is written in python and uses commercial hardware.
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
 |  2016 Mazda CX9  |  ```eems_aero19_logger_mazda_cx9.py```  |     Successfully tested and integrated    |
 |  2017 Ford F150  |  ```eems_aero19_logger_ford_f150.py```  | Successfully tested (except axle torques) |
-| 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |         Not tested in real vehicle        |
+| 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |   Successfully tested (except lidar)      |
 
 ## Data visualization and control
 
