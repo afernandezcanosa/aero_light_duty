@@ -7,7 +7,7 @@ It is written in python and uses commercial hardware.
 
 ### 1. LeddarTech 8 segments 2D lidar
 
-<img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/leddar_vu8.jpeg"
+<img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/leddar_vu8.png"
      style="float: left; margin-right: 10px"
 	 width="134"
 	 height="200"/>
