@@ -3,6 +3,12 @@
 This repo contains the code utilized to collect data to quantify aero benefits of close-following light-duty vehicles.
 It is written in python and uses commercial hardware.
 
+## Hardware
+
+### 1. National Instruments analog I/O device
+
+<img src="https://github.com/afernandezcanosa/aero_light_duty/images/nidaq_mx.jpg"></a> 
+
 ## Data Acquisition scripts
 
 |      Vehicle     |                Code               |                   Status                  |
