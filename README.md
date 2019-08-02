@@ -5,7 +5,16 @@ It is written in python and uses commercial hardware.
 
 ## Hardware
 
-### 1. National Instruments analog I/O device
+### 1. LeddarTech 8 segments 2D lidar
+
+<img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/leddar_vu8.jpeg"
+     style="float: left; margin-right: 10px"
+	 width="134"
+	 height="200"/>
+	 
+A 2D lidar with 8 different segments and a range up to 80 meters in the most optimal conditions with reflective tape. It is manufactured and commercialized by [LeddarTech](https://leddartech.com/). Their measurements can be read by USB or CAN (it has one CAN bus). Therefore, it is a good option for automotive applications where the CAN protocol is widely used.
+
+### 2. National Instruments analog I/O device
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/nidaq_mx.jpg"
      style="float: left; margin-right: 10px"
@@ -14,23 +23,27 @@ It is written in python and uses commercial hardware.
 
 This National Instrument device is connected to a laptop through USB and is used to read voltage analog measurements from the axle torque sensors and send voltages to the acceleration pedal of the car.
 
-### 2. Comma AI Grey Panda CAN interface
+### 3. Comma AI Panda interface
+
+#### 3.1. Grey Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/grey_panda.jpg"
      style="float: left; margin-right: 10px"
 	 width="250"
 	 height="166"/>
 	 
-The Grey Panda is a CAN shield sold by CommaAI that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. Furthermore, the grey panda can read high-precission GPS coordinates via its serial port. Therefore, the grey panda is used to collect data.
+The Grey Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. Furthermore, the grey panda can read high-precission GPS coordinates via its serial port. Therefore, the grey panda is used to collect data.
 	 
-### 3. Comma AI White Panda CAN interface
+### 3.2. White Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/white_panda.jpeg"
      style="float: left; margin-right: 10px"
 	 width="200"
 	 height="200"/>
 	 
-The White Panda is a CAN shield sold by CommaAI that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
+The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
+
+
 
 ## Data Acquisition scripts
 
