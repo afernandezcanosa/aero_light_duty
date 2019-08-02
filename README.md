@@ -10,8 +10,9 @@ It is written in python and uses commercial hardware.
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/nidaq_mx.jpg"
      style="float: left; margin-right: 10px"
 	 width="250"
-	 height="225"
-	 align='center' />
+	 height="225"/>
+
+This National Instrument device is connected to a laptop through USB and is used to read voltage analog measurements from the axle torque sensors and send voltages to the acceleration pedal of the car.
 
 ## Data Acquisition scripts
 
