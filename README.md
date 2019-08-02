@@ -7,7 +7,7 @@ It is written in python and uses commercial hardware.
 
 ### 1. National Instruments analog I/O device
 
-![Image description](https://github.com/afernandezcanosa/aero_light_duty/tree/master/images/nidaq_mx.jpg)
+![Image description](https://github.com/afernandezcanosa/aero_light_duty/master/images/nidaq_mx.jpg)
 
 ## Data Acquisition scripts
 
