@@ -89,7 +89,7 @@ app.layout = html.Div([
                         showCurrentValue = True,
                         color = 'lightgreen',
                         label = 'Target speed',
-                        style={'margin-left': '10px',
+                        style={'margin-left': '40px',
                                'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),    
@@ -98,10 +98,10 @@ app.layout = html.Div([
                         id = 'speed_tank',
                         value = 0,
                         min = 0,
-                        max = 100,
+                        max = 400,
                         showCurrentValue = True,
                         label = 'Speed',
-                        style={'margin-left': '10px',
+                        style={'margin-left': '40px',
                                'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),            
@@ -131,7 +131,7 @@ app.layout = html.Div([
                         label = 'Target gap',
                         color = 'lightgreen',
                         showCurrentValue = True,
-                        style={'margin-left': '10px',
+                        style={'margin-left': '40px',
                                'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),      
@@ -143,7 +143,7 @@ app.layout = html.Div([
                         max = 100,
                         label = 'Gap',
                         showCurrentValue = True,
-                        style={'margin-left': '10px',
+                        style={'margin-left': '40px',
                                'margin-top': '10px'}
                     ),
                 ], className = 'two columns'), 
