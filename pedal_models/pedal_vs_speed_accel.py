@@ -13,11 +13,17 @@ class PedalModel(object):
                            1.59435249e+00, 2.54082287e+01,
                            -5.65619082e-02, -4.96890927e-01, -1.04503861e+01,
                            7.97139394e-04, 2.55779716e-02, 2.12937717e-01, 1.64147857e+00]
+            
+            self.v_coeffs = [3.328, 1.255, 1.673, 0.851]
+            
         elif self.car == 'ford_f150':
             self.coeffs = [2.01805436e-01,
                            6.02884579e-01, 6.36548308e+00,
                           -1.67426622e-02, 1.04169336e+00, -2.43369234e-01,
                            4.63490229e-04, -9.14509267e-03, -2.10704875e-01, 1.55521523e-01]
+            
+            
+            
         elif self.car == 'ford_fusion':
             self.coeffs = [-1.58738238e+00,
                            1.15274390e+00, 1.31335620e+01,
@@ -44,13 +50,25 @@ class PedalModel(object):
         
         return accel_pedal
             
-            
+    
+    def voltage_from_pedal(self, pedal_per):
+        
+        """ What are the voltages that need to be sent to the pedal to 
+        reach the desired acceleration pedal position """
+        
+        pedal = 0.01*pedal_per
+        
+        v_0 = self.v_coeffs[0]*pedal + self.v_coeffs[1]
+        v_1 = self.v_coeffs[2]*pedal + self.v_coeffs[3]
+        
+        return v_0, v_1
 
 if __name__ == "__main__":
     
     mph_to_mps = 0.44704
     
-    cars = ['mazda_cx9', 'ford_f150', 'ford_fusion']
+    cars = ['mazda_cx9']
+#    cars = ['mazda_cx9', 'ford_f150', 'ford_fusion']
     pedals = []
     
     for car in cars:
@@ -60,8 +78,14 @@ if __name__ == "__main__":
     accel_mps2 = 0.2
     for pedal in pedals:
         per = pedal.pedal_per(speed_mps, accel_mps2)
-        
-        print('v = %.2f m/s, a = %.2f m/s^2, car = %s pedal_per = %.2f' %(speed_mps, accel_mps2, pedal.car, per))
+        print('PEDAL MODEL: ')
+        print('v = %.2f m/s, a = %.2f m/s^2, car = %s ==> pedal_per = %.2f %%' %(speed_mps, accel_mps2, pedal.car, per))
+    
+    per = 40    
+    for pedal in pedals:
+        v0, v1 = pedal.voltage_from_pedal(per)    
+        print('VOLTAGE MODEL: ')
+        print('pedal_per = %.2f %% ==> v0 = %.3f V, v1 = %.3f V, car = %s' %(per, v0, v1, pedal.car))
         
  
 
