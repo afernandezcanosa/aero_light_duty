@@ -42,8 +42,8 @@ PANDA.can_send(0x740, dat.decode('hex'), 1)
 base_path = dirname(abspath(__file__))
 leddar = join(base_path,'dbc_files/leddar_vu_8_segments.dbc')
 car = join(base_path,'dbc_files/ford_fusion_2011.dbc')
-CAR_DBC = cantools.database.load_file(leddar)
-LEDDAR_DBC = cantools.database.load_file(car)
+CAR_DBC = cantools.database.load_file(car)
+LEDDAR_DBC = cantools.database.load_file(leddar)
 CAN_VARIABLES = []
 
 
@@ -207,7 +207,7 @@ def show_speed(n):
 @app.callback(
      Output('gap_tank', 'value'),
     [Input('refresh', 'n_intervals')])
-def show_pedal(n):
+def show_gap(n):
 	return CAN_VARIABLES[1]                    
     
     
