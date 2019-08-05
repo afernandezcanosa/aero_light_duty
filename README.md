@@ -56,3 +56,20 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
 ## Data visualization and control
 
 See shared folder
+
+### a. Data visualization
+
+|      Vehicle     |                Code               |                   Status                  |
+|:----------------:|:---------------------------------:|:-----------------------------------------:|
+|  2016 Mazda CX9  |  ```eems_aero19_visualization_mazda_cx9.py```  |     Successfully tested and integrated    |
+|  2017 Ford F150  |  ```eems_aero19_visualization_ford_f150.py```  |  										    |
+| 2011 Ford Fusion | ```eems_aero19_visualization_ford_fusion.py``` |        						  	 	    |
+
+### b. Data visualization and cruise control
+
+|      Vehicle     |                Code               |                   Status                  |
+|:----------------:|:---------------------------------:|:-----------------------------------------:|
+|  2016 Mazda CX9  |  ```eems_aero19_control_mazda_cx9.py```  |     							   |
+|  2017 Ford F150  |  ```eems_aero19_control_ford_f150.py```  |  								   |
+| 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |        						  	   |
+
