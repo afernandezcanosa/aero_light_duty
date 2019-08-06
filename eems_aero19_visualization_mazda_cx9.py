@@ -89,8 +89,8 @@ app.layout = html.Div([
                         showCurrentValue = True,
                         color = 'lightgreen',
                         label = 'Target speed',
-                        style={'margin-left': '40px',
-                               'margin-top': '10px'}
+#                        style={'margin-left': '40px',
+#                               'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),    
                 html.Div([
@@ -101,8 +101,8 @@ app.layout = html.Div([
                         max = 400,
                         showCurrentValue = True,
                         label = 'Speed',
-                        style={'margin-left': '40px',
-                               'margin-top': '10px'}
+#                        style={'margin-left': '40px',
+#                               'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),            
             ], className = 'row')
@@ -131,8 +131,8 @@ app.layout = html.Div([
                         label = 'Target gap',
                         color = 'lightgreen',
                         showCurrentValue = True,
-                        style={'margin-left': '40px',
-                               'margin-top': '10px'}
+#                        style={'margin-left': '40px',
+#                               'margin-top': '10px'}
                     ),
                 ], className = 'two columns'),      
                 html.Div([
@@ -143,8 +143,8 @@ app.layout = html.Div([
                         max = 100,
                         label = 'Gap',
                         showCurrentValue = True,
-                        style={'margin-left': '40px',
-                               'margin-top': '10px'}
+#                        style={'margin-left': '40px',
+#                               'margin-top': '10px'}
                     ),
                 ], className = 'two columns'), 
             ], className = 'row')
