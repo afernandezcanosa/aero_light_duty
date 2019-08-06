@@ -15,7 +15,7 @@ class PedalModel(object):
                            7.97139394e-04, 2.55779716e-02, 2.12937717e-01, 1.64147857e+00]
 
             self.ch0_coeffs = [1.70315, 3.57934]
-            self.ch1_coeffs = [1.07629, 1.79881, 0, 0, 0, 0, 0]
+            self.ch1_coeffs = [1.07629, 1.79882, 0, 0, 0, 0, 0]
 
         elif self.car == 'ford_f150':
             self.coeffs = [2.01805436e-01,
