@@ -15,7 +15,7 @@ class PedalModel(object):
                            7.97139394e-04, 2.55779716e-02, 2.12937717e-01, 1.64147857e+00]
 
             self.ch0_coeffs = [1.70315, 3.57934]
-            self.ch1_coeffs = [1.07629, 1.79882, 0, 0, 0, 0, 0]
+            self.ch1_coeffs = [1.07629, 1.79882]
 
         elif self.car == 'ford_f150':
             self.coeffs = [2.01805436e-01,
@@ -23,11 +23,8 @@ class PedalModel(object):
                           -1.67426622e-02, 1.04169336e+00, -2.43369234e-01,
                            4.63490229e-04, -9.14509267e-03, -2.10704875e-01, 1.55521523e-01]
 
-            self.ch0_coeffs = [0.773, 3.1718]
-            self.ch1_coeffs = [-1.353695817, 6.673643218, -5.543447617,
-                                3.093949867, -0.950167214, 0.152343329,
-                                -0.009974165]
-            # self.ch1_coeffs = [0.388, 1.593]
+            self.ch0_coeffs = [0.388, 1.593]
+            self.ch1_coeffs = [0.773, 3.1718]
 
         elif self.car == 'ford_fusion':
             self.coeffs = [-1.58738238e+00,
@@ -35,8 +32,8 @@ class PedalModel(object):
                           -3.63003606e-02, 1.12372052e-01, -5.05241104e+00,
                            6.23982212e-04, 2.53013196e-02, 3.42877674e-01, 7.16712738e-01]
 
-            self.ch0_coeffs = [0.773, 3.1718]
-            self.ch1_coeffs = [0.388, 1.593, 0, 0, 0, 0, 0]
+            self.ch0_coeffs = [0.388, 1.593]
+            self.ch1_coeffs = [0.773, 3.1718]
 
         else:
             raise ValueError("Please introduce a valid vehicle")
@@ -68,10 +65,12 @@ class PedalModel(object):
         pedal = 0.01*pedal_per
 
         v_0 = self.ch0_coeffs[0] + self.ch0_coeffs[1]*pedal
-        v_1 = (self.ch1_coeffs[0] + self.ch1_coeffs[1]*pedal +
-               self.ch1_coeffs[2]*pedal**2 + self.ch1_coeffs[3]*pedal**3 +
-               self.ch1_coeffs[4]*pedal**4 + self.ch1_coeffs[5]*pedal**5 +
-               self.ch1_coeffs[6]*pedal**6)
+        v_1 = self.ch1_coeffs[0] + self.ch1_coeffs[1]*pedal
+        if self.car == 'ford_f150':
+            v_1 = v_1 + (- 0.009974165*v_1**6 + 0.152343329*v_1**5
+                         - 0.950167214*v_1**4 + 3.093949867*v_1**3
+                         - 5.543447617*v_1**2 + 5.080643218*v_1
+                         - 1.741695818)
 
         return v_0, v_1
 
@@ -92,7 +91,7 @@ if __name__ == "__main__":
         print('PEDAL MODEL: ')
         print('v = %.2f m/s, a = %.2f m/s^2, car = %s ==> pedal_per = %.2f %%' %(speed_mps, accel_mps2, pedal.car, per))
 
-    per = 2
+    per = 15
     for pedal in pedals:
         v0, v1 = pedal.voltage_from_pedal(per)
         print('VOLTAGE MODEL: ')
