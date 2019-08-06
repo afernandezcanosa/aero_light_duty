@@ -14,7 +14,8 @@ class PedalModel(object):
                            -5.65619082e-02, -4.96890927e-01, -1.04503861e+01,
                            7.97139394e-04, 2.55779716e-02, 2.12937717e-01, 1.64147857e+00]
             
-            self.v_coeffs = [3.328, 1.255, 1.673, 0.851]
+            self.ch0_coeffs = [1.255, 3.328]
+            self.ch1_coeffs = [0.851, 1.673]
             
         elif self.car == 'ford_f150':
             self.coeffs = [2.01805436e-01,
@@ -22,13 +23,18 @@ class PedalModel(object):
                           -1.67426622e-02, 1.04169336e+00, -2.43369234e-01,
                            4.63490229e-04, -9.14509267e-03, -2.10704875e-01, 1.55521523e-01]
             
-            
+            self.ch0_coeffs = [1.255, 3.328]
+            self.ch1_coeffs = [0.851, 1.673]
             
         elif self.car == 'ford_fusion':
             self.coeffs = [-1.58738238e+00,
                            1.15274390e+00, 1.31335620e+01,
                           -3.63003606e-02, 1.12372052e-01, -5.05241104e+00,
-                           6.23982212e-04, 2.53013196e-02, 3.42877674e-01, 7.16712738e-01]        
+                           6.23982212e-04, 2.53013196e-02, 3.42877674e-01, 7.16712738e-01]       
+            
+            self.ch0_coeffs = [1.255, 3.328]
+            self.ch1_coeffs = [0.851, 1.673]
+            
         else:
             raise ValueError("Please introduce a valid vehicle")  
             
@@ -58,8 +64,8 @@ class PedalModel(object):
         
         pedal = 0.01*pedal_per
         
-        v_0 = self.v_coeffs[0]*pedal + self.v_coeffs[1]
-        v_1 = self.v_coeffs[2]*pedal + self.v_coeffs[3]
+        v_0 = self.ch0_coeffs[0] + self.ch0_coeffs[1]*pedal
+        v_1 = self.ch1_coeffs[0] + self.ch1_coeffs[1]*pedal
         
         return v_0, v_1
 
