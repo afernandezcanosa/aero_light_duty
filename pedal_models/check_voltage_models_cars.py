@@ -93,9 +93,7 @@ app.layout = html.Div([
                 ),   
         ], className = 'nine columns'),           
     ], className = 'row', style={'padding': 20}),           
-    
-
-        
+         
     html.Div([       
         html.Div([
             html.Label('PEDAL INPUT:',
@@ -125,8 +123,7 @@ app.layout = html.Div([
         
     html.Div([
         dcc.Graph(id='live_update_graph'),
-    ], className = 'row', style={'padding': 20})
-            
+    ], className = 'row', style={'padding': 20})           
 ])
     
     
@@ -156,17 +153,15 @@ def real_gas(n, pedal_input, car):
     global DBC_FILE, VOLTAGE_MODEL, PANDA
     
     v0, v1 = VOLTAGE_MODEL.voltage_from_pedal(pedal_input)
-    print(v0,v1)
     
-    real_pedal = 25
+    real_pedal = 0
     
     can_recv = PANDA.can_recv()
     with nidaqmx.Task() as task:
         task.ao_channels.add_ao_voltage_chan("Dev1/ao0")
         task.ao_channels.add_ao_voltage_chan("Dev1/ao1")
         task.write([v0, v1], auto_start=True)
-        
-        
+                
     if car == 'mazda_cx9':
         for address, _, dat in can_recv:
             if address == 0x167:
@@ -187,8 +182,7 @@ def real_gas(n, pedal_input, car):
                 msg = DBC_FILE.decode_message(address, dat)
                 real_pedal = msg['Pedal_accel_pos_CAN_per_'] 
                 break   
-            
-            
+                     
     X.append(datetime.now())
     Y0.append(pedal_input)
     Y1.append(real_pedal)
@@ -213,8 +207,6 @@ def real_gas(n, pedal_input, car):
     return {
 		'data': [TRACES0, TRACES1]
 	}    
-    
-
     
 
 # Run the app in local server
