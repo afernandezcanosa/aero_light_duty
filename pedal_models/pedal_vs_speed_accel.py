@@ -32,8 +32,8 @@ class PedalModel(object):
                           -3.63003606e-02, 1.12372052e-01, -5.05241104e+00,
                            6.23982212e-04, 2.53013196e-02, 3.42877674e-01, 7.16712738e-01]
 
-            self.ch0_coeffs = [0.388, 1.593]
-            self.ch1_coeffs = [0.773, 3.1718]
+            self.ch0_coeffs = [1.4566, 3.17]
+            self.ch1_coeffs = [0.7896, 1.58]
 
         else:
             raise ValueError("Please introduce a valid vehicle")
@@ -71,7 +71,6 @@ class PedalModel(object):
                          - 0.950167214*v_1**4 + 3.093949867*v_1**3
                          - 5.543447617*v_1**2 + 5.080643218*v_1
                          - 1.741695818)
-
         return v_0, v_1
 
 if __name__ == "__main__":
