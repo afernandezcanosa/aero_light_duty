@@ -18,10 +18,11 @@ from os.path import dirname, abspath, join
 
 # Import classes, methods, and functions from custom libraries
 from gps_ublox.gps import lat_longitude_from_serial
+from resources import get_nidaqmx_dev_name
 
-def can_logger(car_dbc = None, leddar_dbc = None, port = None, 
+def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                sample_time = 0.2, filename = None):
-    
+
     try:
         print("Trying to connect to Panda over USB...")
         if port != None:
@@ -56,11 +57,12 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                    'longitude_deg',
                    'axle_torque_ch_0_V',
                    'axle_torque_ch_1_V']
-        
+
         df = pd.DataFrame(columns = columns)
         rel_time = 0
         dt = sample_time
-        
+        device = get_nidaqmx_dev_name()
+
         while True:
             time.sleep(dt)
             row = {}
@@ -73,7 +75,7 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                     msg = car_dbc.decode_message(address,dat)
                     row[columns[2]] = (msg['Veh_wheel_speed_RR_CAN_kph_'] +
                                        msg['Veh_wheel_speed_FL_CAN_kph_'] +
-                                       msg['Veh_wheel_speed_RL_CAN_kph_'] + 
+                                       msg['Veh_wheel_speed_RL_CAN_kph_'] +
                                        msg['Veh_wheel_speed_FR_CAN_kph_'])*0.25*0.62137119
                 elif address == 0x202:
                     msg = car_dbc.decode_message(address, dat)
@@ -88,28 +90,28 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                     msg = leddar_dbc.decode_message(address, dat)
                     if msg['lidar_channel'] == 4:
                         row[columns[5]] = msg['lidar_distance_m']
-						
+
             lat, long = lat_longitude_from_serial(gps)
             row[columns[6]] = lat
             row[columns[7]] = long
     		  # Add nidaqmx channels
             with nidaqmx.Task() as task:
-                task.ai_channels.add_ai_voltage_chan("Dev1/ai0")
-                task.ai_channels.add_ai_voltage_chan("Dev1/ai1")
+                task.ai_channels.add_ai_voltage_chan(device + "/ai0")
+                task.ai_channels.add_ai_voltage_chan(device + "/ai1")
                 analog_channels = np.array(task.read(number_of_samples_per_channel=100)).mean(axis = 1)
             row[columns[8]] = analog_channels[0]
             row[columns[9]] = analog_channels[1]
             print(row)
             df = df.append(row, ignore_index = True)
             rel_time += dt
-            
+
     except KeyboardInterrupt:
         if filename == None:
             filename = datetime.now().strftime("%Y%m%d%H%M%S") + 'output.csv'
         else:
             filename = datetime.now().strftime("%Y%m%d%H%M%S") + filename + '.csv'
         df.to_csv(filename, index = False)
-        
+
         # Print and plot results in the screen
         plt.figure()
         plt.subplot(2,1,1)
@@ -122,17 +124,16 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
         plt.xlabel('time (sec)')
         plt.legend()
         plt.show()
-        
+
 if __name__ == "__main__":
-    
+
     # Read dbc files and loaded into the can_logger_function
     base_path = dirname(abspath(__file__))
     leddar = join(base_path,'dbc_files/leddar_vu_8_segments.dbc')
     car = join(base_path,'dbc_files/mazda_cx9_2016.dbc')
-    
+
     leddar_dbc = cantools.database.load_file(leddar)
     car_dbc = cantools.database.load_file(car)
     # port_send = '53002c000c51363338383037'
     # port_recv = '240050000c51363338383037'
     can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2)
-                   
