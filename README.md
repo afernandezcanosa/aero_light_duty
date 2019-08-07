@@ -23,6 +23,7 @@ Before using the lidar with CAN protocol with larger longitudinal range, some se
 |      Parameter    |                Value             |
 |:-----------------:|:--------------------------------:|
 |  CAN Baud rate    |             500 kbps             |
+|  Serial Baud rate |               9600               |
 |  Accumulation     |                8                 |
 | Oversampling      |                8                 | 
 | Points            |                60                |    
