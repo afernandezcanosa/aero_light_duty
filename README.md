@@ -14,6 +14,19 @@ It is written in python and uses commercial hardware.
 	 
 A 2D lidar with 8 different segments and a range up to 80 meters in the most optimal conditions with reflective tape. It is manufactured and commercialized by [LeddarTech](https://leddartech.com/). Their measurements can be read by USB or CAN (it has one CAN bus). Therefore, it is a good option for automotive applications where the CAN protocol is widely used.
 
+
+#### Leddar settings
+
+Before using the lidar with CAN protocol with larger longitudinal range, some settings must be modified by using the official software provided by LeddarTech:
+
+
+|      Parameter    |                Value             |
+|:-----------------:|:--------------------------------:|
+|  CAN Baud rate    |             500 kbps             |
+|  Accumulation     |                8                 |
+| Oversampling      |                8                 | 
+| Points            |                60                |    
+
 ### 2. National Instruments analog I/O device
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/nidaq_mx.jpg"
