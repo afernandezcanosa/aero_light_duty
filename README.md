@@ -20,13 +20,15 @@ A 2D lidar with 8 different segments and a range up to 80 meters in the most opt
 Before using the lidar with CAN protocol with larger longitudinal range, some settings must be modified by using the official software provided by LeddarTech:
 
 <center>
+
 |      Parameter    |                Value             |
 |:-----------------:|:--------------------------------:|
 |  CAN Baud rate    |             500 kbps             |
 |  Serial Baud rate |               9600               |
 |  Accumulation     |                8                 |
 | Oversampling      |                8                 | 
-| Points            |                60                |    
+| Points            |                60                |   
+ 
 </center>
 
 ### 2. National Instruments analog I/O device
