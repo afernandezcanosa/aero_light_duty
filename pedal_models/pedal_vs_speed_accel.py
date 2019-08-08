@@ -23,8 +23,11 @@ class PedalModel(object):
                           -1.67426622e-02, 1.04169336e+00, -2.43369234e-01,
                            4.63490229e-04, -9.14509267e-03, -2.10704875e-01, 1.55521523e-01]
 
-            self.ch0_coeffs = [0.388, 1.593]
-            self.ch1_coeffs = [0.773, 3.1718]
+            self.ch0_coeffs = [1.4283, 3.17]
+            self.ch1_coeffs = [0.8317, 1.49]
+
+            self.ch0_coeffs_corr = [1.3974, 3.51]
+            self.ch1_coeffs_corr = [0.772, 0.0]
 
         elif self.car == 'ford_fusion':
             self.coeffs = [-1.58738238e+00,
@@ -32,8 +35,8 @@ class PedalModel(object):
                           -3.63003606e-02, 1.12372052e-01, -5.05241104e+00,
                            6.23982212e-04, 2.53013196e-02, 3.42877674e-01, 7.16712738e-01]
 
-            self.ch0_coeffs = [1.4566, 3.17]
-            self.ch1_coeffs = [0.7896, 1.58]
+            self.ch0_coeffs = [1.781, 3.13]
+            self.ch1_coeffs = [0.389, 1.59]
 
         else:
             raise ValueError("Please introduce a valid vehicle")
@@ -56,7 +59,6 @@ class PedalModel(object):
 
         return accel_pedal
 
-
     def voltage_from_pedal(self, pedal_per):
 
         """ What are the voltages that need to be sent to the pedal to
@@ -66,11 +68,11 @@ class PedalModel(object):
 
         v_0 = self.ch0_coeffs[0] + self.ch0_coeffs[1]*pedal
         v_1 = self.ch1_coeffs[0] + self.ch1_coeffs[1]*pedal
-        if self.car == 'ford_f150':
-            v_1 = v_1 + (- 0.009974165*v_1**6 + 0.152343329*v_1**5
-                         - 0.950167214*v_1**4 + 3.093949867*v_1**3
-                         - 5.543447617*v_1**2 + 5.080643218*v_1
-                         - 1.741695818)
+
+        if self.car == 'ford_f150' and pedal_per < 11:
+            v_0 = self.ch0_coeffs_corr[0] + self.ch0_coeffs_corr[1]*pedal
+            v_1 = self.ch1_coeffs_corr[0] + self.ch1_coeffs_corr[1]*pedal
+
         return v_0, v_1
 
 if __name__ == "__main__":
