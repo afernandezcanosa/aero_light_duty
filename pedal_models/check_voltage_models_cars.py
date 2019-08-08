@@ -93,7 +93,7 @@ app.layout = html.Div([
                     {'label': 'ford_fusion', 'value': 'ford_fusion'}
                 ],
                 style = {'width': 900},
-                value='ford_f150'
+                value='mazda_cx9'
                 ),
         ], className = 'nine columns'),
     ], className = 'row', style={'padding': 20}),
