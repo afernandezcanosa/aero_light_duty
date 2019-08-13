@@ -1,7 +1,13 @@
 matplotlib==2.2.4
-numpy==1.16.4
 pandacan==0.0.8
-cantools==32.20.0
+pandas==0.24.2
+numpy==1.16.3
+cantools==32.19.0
+dash==1.1.1
+dash_core_components==1.1.1
+dash_daq==0.1.7
+dash_html_components==1.0.0
+Flask==1.1.1
 nidaqmx==0.5.7
 panda==0.3.1
-pandas==0.25.0
+plotly==4.1.0
