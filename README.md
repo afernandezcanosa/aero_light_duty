@@ -83,7 +83,7 @@ See shared folder
 
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
-|  2016 Mazda CX9  |  ```eems_aero19_control_mazda_cx9.py```  |     							   |
-|  2017 Ford F150  |  ```eems_aero19_control_ford_f150.py```  |  	Pedal model done			   |
-| 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |     Pedal model done               |
+|  2016 Mazda CX9  |  ```eems_aero19_control_mazda_cx9.py```  |     Pedal model done and tested    |
+|  2017 Ford F150  |  ```eems_aero19_control_ford_f150.py```  |  	Pedal model done and tested	   |
+| 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |     Pedal model done and tested    |
 
