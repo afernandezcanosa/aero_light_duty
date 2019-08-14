@@ -18,7 +18,7 @@ from os.path import dirname, abspath, join
 
 # Import classes, methods, and functions from custom libraries
 from gps_ublox.gps import lat_longitude_from_serial
-from resources import get_nidaqmx_dev_name
+from resources import get_nidaqmx_dev_name, get_panda_id
 
 def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                sample_time = 0.2, filename = None):
@@ -107,9 +107,9 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
 
     except KeyboardInterrupt:
         if filename == None:
-            filename = datetime.now().strftime("%Y%m%d%H%M%S") + 'output.csv'
+            filename = datetime.now().strftime("%Y%m%d%H%M%S") + '_output.csv'
         else:
-            filename = datetime.now().strftime("%Y%m%d%H%M%S") + filename + '.csv'
+            filename = datetime.now().strftime("%Y%m%d%H%M%S") + '_' + filename + '.csv'
         df.to_csv(filename, index = False)
 
         # Print and plot results in the screen
@@ -134,6 +134,9 @@ if __name__ == "__main__":
 
     leddar_dbc = cantools.database.load_file(leddar)
     car_dbc = cantools.database.load_file(car)
-    # port_send = '53002c000c51363338383037'
-    # port_recv = '240050000c51363338383037'
-    can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2)
+
+    # Get the panda port that is used to recv data: it must have GPS
+    panda_port = get_panda_id('mazda_cx9', 'recv')
+
+    can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2,
+               port = panda_port, filename = 'mazda_cx9_preliminary_test')
