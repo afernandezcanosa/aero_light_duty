@@ -57,15 +57,26 @@ The Grey Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able
 	 
 The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
 
+### Panda ports list
+
+* Mazda CX9
+  * Read CAN data: 53002c000c51363338383037
+  * Send commands and read CAN data: 240050000c51363338383037
+* Ford F150
+  * Read CAN data: 360024000c51363338383037
+  * Send commands and read CAN data: 26003f000651363038363036
+* Ford Fusion
+  * Read CAN data: 
+  * Send commands and read CAN data: 		
 
 
 ## Data Acquisition scripts
 
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
-|  2016 Mazda CX9  |  ```eems_aero19_logger_mazda_cx9.py```  |     Successfully tested and integrated    |
-|  2017 Ford F150  |  ```eems_aero19_logger_ford_f150.py```  | Successfully tested (except axle torques) |
-| 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |   Successfully tested (except lidar)      |
+|  2016 Mazda CX9  |  ```eems_aero19_logger_mazda_cx9.py```  |     Successfully tested and integrated  |
+|  2017 Ford F150  |  ```eems_aero19_logger_ford_f150.py```  | Successfully tested and integrated      |
+| 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |   Successfully tested (except lidar)    |
 
 ## Data visualization and control
 
@@ -76,7 +87,7 @@ See shared folder
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
 |  2016 Mazda CX9  |  ```eems_aero19_visualization_mazda_cx9.py```  |     Successfully tested and integrated    |
-|  2017 Ford F150  |  ```eems_aero19_visualization_ford_f150.py```  |  										    |
+|  2017 Ford F150  |  ```eems_aero19_visualization_ford_f150.py```  |     Successfully tested and integrated 	|
 | 2011 Ford Fusion | ```eems_aero19_visualization_ford_fusion.py``` |        						  	 	    |
 
 ### b. Data visualization and cruise control
