@@ -81,4 +81,152 @@ def layout_viz():
             ])
 
 def layout_control():
-    pass
+    
+    colors = {
+        'background': '#c2f0c2',
+        'text': '#248f24'
+    }
+    
+    return  html.Div(style = {'backgroundColor': colors['background']}, children =[
+                html.Div([
+                    html.H1(
+                            children = 'EEMS Aero 2019 - Pedal control display',
+                            style = {'color': colors['text']}
+                    ),
+                ], className = 'row', style={'padding': 10}),
+                    
+                dcc.Interval(
+                    id = 'refresh',
+                    interval = 100,
+                    n_intervals = 0
+                ),
+    
+                html.Link(
+                    rel='stylesheet',
+                    href='/static/stylesheet.css'
+                ),
+                        
+                # This is an auxiliar division to read CAN
+                html.Div(id='read_can'),
+ 
+                html.Div([  
+                    html.Div([
+                        html.Label('CACC Control type:',
+                            style = {'fontSize': 20},
+                        )
+                    ], className = 'row'),
+                    dcc.RadioItems(
+                        options=[
+                            {'label': 'Lead', 'value': 'Lead'},
+                            {'label': 'Following', 'value': 'Following'}
+                        ],
+                        value = 'Following',
+                        inputStyle = {'width': 15,
+                                      'height': 15},
+                        labelStyle={'display': 'inline-block'},
+                        style = {'fontSize': 20},
+                        id = 'car_position'
+                    ),
+                ], className = 'row', style={'padding': 20}),
+             
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Label('Target Gap (m):',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Enter a target gap...',
+                                type = 'number',
+                                id = 'gap_input',
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                    html.Div([
+                        html.Div([
+                            html.Label('Target Speed (mph):',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Enter a target speed...',
+                                type = 'number',
+                                id = 'speed_input',
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                ], className = 'row', style={'padding': 10}),
+
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Label('Kp:',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Prop gain...',
+                                type = 'number',
+                                id = 'prop_gain',
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                    html.Div([
+                        html.Div([
+                            html.Label('Kd:',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Deriv gain...',
+                                type = 'number',
+                                id = 'der_gain',
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                ], className = 'row', style={'padding': 10}),
+                            
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Label('Max accel (mps^2):',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Max acceleration...',
+                                type = 'number',
+                                id = 'max_accel',
+                                value = 0.9
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                    html.Div([
+                        html.Div([
+                            html.Label('Min accel (mps^2):',
+                                style = {'fontSize': 20},
+                            )
+                        ], className = 'row'),
+                        html.Div([
+                            dcc.Input(
+                                placeholder = 'Min acceleration...',
+                                type = 'number',
+                                id = 'min_accel',
+                                value = -0.4
+                            ),
+                        ], className = 'row', style={'padding': 5}),
+                    ], className = 'three columns'),
+                ], className = 'row', style={'padding': 10}),
+                            
+            html.Div([
+                dcc.Graph(id='live_update_graph'),
+            ], className = 'row', style={'padding': 20})          
+                            
+                            
+            ])
