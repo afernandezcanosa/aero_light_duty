@@ -81,12 +81,12 @@ def layout_viz():
             ])
 
 def layout_control():
-    
+
     colors = {
         'background': '#c2f0c2',
         'text': '#248f24'
     }
-    
+
     return  html.Div(style = {'backgroundColor': colors['background']}, children =[
                 html.Div([
                     html.H1(
@@ -94,22 +94,22 @@ def layout_control():
                             style = {'color': colors['text']}
                     ),
                 ], className = 'row', style={'padding': 10}),
-                    
+
                 dcc.Interval(
                     id = 'refresh',
                     interval = 100,
                     n_intervals = 0
                 ),
-    
+
                 html.Link(
                     rel='stylesheet',
                     href='/static/stylesheet.css'
                 ),
-                        
+
                 # This is an auxiliar division to read CAN
                 html.Div(id='read_can'),
- 
-                html.Div([  
+
+                html.Div([
                     html.Div([
                         html.Label('CACC Control type:',
                             style = {'fontSize': 20},
@@ -128,7 +128,7 @@ def layout_control():
                         id = 'car_position'
                     ),
                 ], className = 'row', style={'padding': 20}),
-             
+
                 html.Div([
                     html.Div([
                         html.Div([
@@ -140,6 +140,7 @@ def layout_control():
                             dcc.Input(
                                 placeholder = 'Enter a target gap...',
                                 type = 'number',
+                                value = 25,
                                 id = 'gap_input',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -154,6 +155,7 @@ def layout_control():
                             dcc.Input(
                                 placeholder = 'Enter a target speed...',
                                 type = 'number',
+                                value = 25,
                                 id = 'speed_input',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -171,6 +173,7 @@ def layout_control():
                             dcc.Input(
                                 placeholder = 'Prop gain...',
                                 type = 'number',
+                                value = 0.2,
                                 id = 'prop_gain',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -185,12 +188,13 @@ def layout_control():
                             dcc.Input(
                                 placeholder = 'Deriv gain...',
                                 type = 'number',
+                                value = 0.15,
                                 id = 'der_gain',
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
                 ], className = 'row', style={'padding': 10}),
-                            
+
                 html.Div([
                     html.Div([
                         html.Div([
@@ -223,10 +227,10 @@ def layout_control():
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
                 ], className = 'row', style={'padding': 10}),
-                            
+
             html.Div([
                 dcc.Graph(id='live_update_graph'),
-            ], className = 'row', style={'padding': 20})          
-                            
-                            
+            ], className = 'row', style={'padding': 20})
+
+
             ])

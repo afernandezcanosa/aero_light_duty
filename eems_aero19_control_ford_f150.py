@@ -38,7 +38,7 @@ def static_file(path):
 
 # Global variables and initialization
 # Open panda device (comma ai) and clear the buffer
-panda_port = get_panda_id('mazda_cx9', 'send')
+panda_port = get_panda_id('ford_f150', 'send')
 PANDA = Panda(panda_port)
 PANDA.can_clear(0xFFFF)
 PANDA.set_safety_mode(Panda.SAFETY_ALLOUTPUT)
@@ -49,11 +49,11 @@ PANDA.can_send(0x740, dat.decode('hex'), 1)
 # DBC files: car and leddar
 base_path = dirname(abspath(__file__))
 leddar = join(base_path,'dbc_files/leddar_vu_8_segments.dbc')
-car = join(base_path,'dbc_files/mazda_cx9_2016.dbc')
+car = join(base_path,'dbc_files/ford_f150_2017.dbc')
 CAR_DBC = cantools.database.load_file(car)
 LEDDAR_DBC = cantools.database.load_file(leddar)
 CAN_VARIABLES = []
-PEDAL_MODEL = PM('mazda_cx9')
+PEDAL_MODEL = PM('ford_f150')
 DEV = get_nidaqmx_dev_name()
 X = []
 Y0 = []; Y1 = []; Y2 = []; Y3 = []
@@ -154,7 +154,7 @@ def read_can(n):
 
 	if can_recv != []:
 		for address, _, dat, _  in can_recv:
-			if address == 0x215:
+			if address == 0x217:
 				msg = CAR_DBC.decode_message(address, dat)
 				speed = (msg['Veh_wheel_speed_RR_CAN_kph_'] +
 						  msg['Veh_wheel_speed_FL_CAN_kph_'] +
