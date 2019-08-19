@@ -26,14 +26,22 @@ def get_panda_id(car_name, option):
             raise ValueError("Please introduce a valid option: recv - send")
     elif car_name == 'ford_fusion':
         if option == 'recv':
-            return None
+            return '240050000c51363338383037'
         elif option == 'send':
-            return None
+            return '540041000651363038363036'
         else:
             raise ValueError("Please introduce a valid option: recv - send")
     else:
         raise ValueError("Please introduce a valid vehicle")
         
+		
+def can_recv_to_dict(can_recv):
+	# Convert to dictionary
+	can_recv_dict = {}
+	for address, _, dat, _  in can_recv:
+		can_recv_dict[address] = dat
+
+	return can_recv_dict
 
 if __name__ == "__main__":
     device = get_nidaqmx_dev_name()
