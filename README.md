@@ -66,8 +66,8 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
   * Read CAN data: 360024000c51363338383037
   * Send commands and read CAN data: 26003f000651363038363036
 * Ford Fusion
-  * Read CAN data: 
-  * Send commands and read CAN data: 		
+  * Read CAN data: 240050000c51363338383037
+  * Send commands and read CAN data: 540041000651363038363036		
 
 
 ## Data Acquisition scripts
