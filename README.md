@@ -3,9 +3,9 @@
 This repo contains the code utilized to collect data to quantify aero benefits of close-following light-duty vehicles.
 It is written in python and uses commercial hardware.
 
-## Hardware
+## 1. Hardware
 
-### 1. LeddarTech 8 segments 2D lidar
+### 1.1. LeddarTech 8 segments 2D lidar
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/leddar_vu8.png"
      style="float: left; margin-right: 10px"
@@ -28,7 +28,7 @@ Before using the lidar with CAN protocol with larger longitudinal range, some se
 | Oversampling      |                8                 | 
 | Points            |                60                |    
 
-### 2. National Instruments analog I/O device
+### 1.2. National Instruments analog I/O device
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/nidaq_mx.jpg"
      style="float: left; margin-right: 10px"
@@ -37,9 +37,9 @@ Before using the lidar with CAN protocol with larger longitudinal range, some se
 
 This National Instrument device is connected to a laptop through USB and is used to read voltage analog measurements from the axle torque sensors and send voltages to the acceleration pedal of the car.
 
-### 3. Comma AI Panda interface
+### 1.3. Comma AI Panda interface
 
-#### 3.1. Grey Panda CAN interface
+#### 1.3.1. Grey Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/grey_panda.jpg"
      style="float: left; margin-right: 10px"
@@ -48,7 +48,7 @@ This National Instrument device is connected to a laptop through USB and is used
 	 
 The Grey Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. Furthermore, the grey panda can read high-precission GPS coordinates via its serial port. Therefore, the grey panda is used to collect data.
 	 
-#### 3.2. White Panda CAN interface
+#### 1.3.2. White Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/white_panda.jpeg"
      style="float: left; margin-right: 10px"
@@ -57,7 +57,7 @@ The Grey Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able
 	 
 The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
 
-### Panda ports list
+### 1.4. Panda ports list
 
 * Mazda CX9
   * Read CAN data: 53002c000c51363338383037
@@ -70,7 +70,7 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
   * Send commands and read CAN data: 540041000651363038363036		
 
 
-## Data Acquisition scripts
+## 2. Data Acquisition scripts
 
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
@@ -78,11 +78,11 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
 |  2017 Ford F150  |  ```eems_aero19_logger_ford_f150.py```  | Successfully tested and integrated      |
 | 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |   Successfully tested (except lidar)    |
 
-## Data visualization and control
+## 3. Data visualization and control
 
 See shared folder
 
-### a. Data visualization
+### 3.1. Data visualization
 
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
@@ -90,11 +90,21 @@ See shared folder
 |  2017 Ford F150  |  ```eems_aero19_visualization_ford_f150.py```  |     Successfully tested and integrated 	|
 | 2011 Ford Fusion | ```eems_aero19_visualization_ford_fusion.py``` |        						  	 	    |
 
-### b. Data visualization and cruise control
+### 3.2. Data visualization and cruise control
 
 |      Vehicle     |                Code               |                   Status                  |
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
 |  2016 Mazda CX9  |  ```eems_aero19_control_mazda_cx9.py```  |     Pedal model done and tested    |
 |  2017 Ford F150  |  ```eems_aero19_control_ford_f150.py```  |  	Pedal model done and tested	   |
 | 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |     Pedal model done and tested    |
+
+
+## 4. Lessons learned
+
+### 4.1. F150 Pedal Model Issues
+The accelerator pedal of the F150 is very sensitive and small perturbation seems to affect the performance of the "voltage vs pedal" model. In some cases, for small pedal percentages (which are the ones that we can control), we can even lose the control of the accelerator pedal without the possibility of reversing the current with the diode.
+
+### 4.2. Temperature effects of the diode voltage drop
+The temperature of the circuit affects the voltage drop of the diode and therefore, we can lose the control of the accelerator pedal.
+
 
