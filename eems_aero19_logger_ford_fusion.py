@@ -88,7 +88,9 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
                     msg = leddar_dbc.decode_message(address, dat)
                     if msg['lidar_channel'] == 4:
                         row[columns[5]] = msg['lidar_distance_m']
-
+            # Clear the CAN bus to avoid the buffer
+            p.can_clear(0xFFFF)
+            
             lat, long = lat_longitude_from_serial(gps)
             row[columns[6]] = lat
             row[columns[7]] = long
