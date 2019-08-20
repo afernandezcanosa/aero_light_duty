@@ -107,4 +107,10 @@ The accelerator pedal of the F150 is very sensitive and small perturbation seems
 ### 4.2. Temperature effects of the diode voltage drop
 The temperature of the circuit affects the voltage drop of the diode and therefore, we can lose the control of the accelerator pedal.
 
+### 4.3. Lidar settings and measurements
+To successfully perform these tests, we need accurate measurements of the 2D lidar. A trade-off between long enough range, accuracy, reliability, and measurement rate is required. In order to do so, the settings of the lidar must be modified:
+
+* We need a narrow strip of tape on the rear-back of the vehicles that we want to test
+* As we only care about the longitudinal position of the vehicles (gap), we can select only the two central channels. This way, we can increase the measurement rate and speed up both data loggers and control/visualizations.
+* Play around with accumulation/oversampling/points settings in order to obtain a measurement range of around 70 meters with high accuracy.
 
