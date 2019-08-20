@@ -90,7 +90,7 @@ def update_figure_send_controls(n, target_gap, target_speed,
     if car_position == 'Following':
         a_control = kp*(CAN_VARIABLES[1] - target_gap) + kd*(target_speed - CAN_VARIABLES[0])*0.44704
     else:
-        a_control =  - (kp*(CAN_VARIABLES[1] - target_gap) + kd*(target_speed - CAN_VARIABLES[0])*0.44704)
+        a_control =  - kp*(CAN_VARIABLES[1] - target_gap) + kd*(target_speed - CAN_VARIABLES[0])*0.44704
     if a_control > max_accel:
         a_control = max_accel
     elif a_control < min_accel:
