@@ -168,6 +168,8 @@ def read_can(n):
 				if msg['lidar_channel'] == 4:
 					gap = msg['lidar_distance_m']
 					CAN_VARIABLES[1] = gap
+    # Clear the buffer of the CAN buses that we use
+    PANDA.can_clear(0xFFFF)
 
 
 # Run the app in local server
