@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from panda import Panda
 from datetime import datetime
 from os.path import dirname, abspath, join
+from nidaqmx.constants import TerminalConfiguration
 
 # Import classes, methods, and functions from custom libraries
 from gps_ublox.gps import lat_longitude_from_serial
@@ -98,8 +99,8 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
             row[columns[7]] = long
     		  # Add nidaqmx channels
             with nidaqmx.Task() as task:
-                task.ai_channels.add_ai_voltage_chan(device + "/ai0")
-                task.ai_channels.add_ai_voltage_chan(device + "/ai1")
+                task.ai_channels.add_ai_voltage_chan(device + "/ai0", terminal_config = TerminalConfiguration.RSE)
+                task.ai_channels.add_ai_voltage_chan(device + "/ai1", terminal_config = TerminalConfiguration.RSE)
                 analog_channels = np.array(task.read(number_of_samples_per_channel=100)).mean(axis = 1)
             row[columns[8]] = analog_channels[0]
             row[columns[9]] = analog_channels[1]
