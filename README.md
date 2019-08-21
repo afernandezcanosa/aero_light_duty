@@ -61,7 +61,7 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
 
 * Mazda CX9
   * Read CAN data: 53002c000c51363338383037
-  * Send commands and read CAN data: 240050000c51363338383037
+  * Send commands and read CAN data: 4e0046000651363038363036 
 * Ford F150
   * Read CAN data: 360024000c51363338383037
   * Send commands and read CAN data: 26003f000651363038363036
