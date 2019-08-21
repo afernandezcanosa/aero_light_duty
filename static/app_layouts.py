@@ -207,7 +207,7 @@ def layout_control():
                                 placeholder = 'Max acceleration...',
                                 type = 'number',
                                 id = 'max_accel',
-                                value = 0.9
+                                value = 0.3
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
@@ -222,7 +222,7 @@ def layout_control():
                                 placeholder = 'Min acceleration...',
                                 type = 'number',
                                 id = 'min_accel',
-                                value = -0.4
+                                value = -0.2
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
