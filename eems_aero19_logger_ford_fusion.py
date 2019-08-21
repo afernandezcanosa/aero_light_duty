@@ -136,7 +136,7 @@ if __name__ == "__main__":
     car_dbc = cantools.database.load_file(car)
 
     # Get the panda port that is used to recv data: it must have GPS
-    panda_port = get_panda_id('ford_fusion, 'recv')
+    panda_port = get_panda_id('ford_fusion', 'recv')
     device = get_nidaqmx_dev_name()
 
     can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2,
