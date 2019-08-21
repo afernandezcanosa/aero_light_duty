@@ -56,8 +56,8 @@ CAN_VARIABLES = []
 PEDAL_MODEL = PM('mazda_cx9')
 DEV = get_nidaqmx_dev_name()
 X = []
-Y0 = []; Y1 = []; Y2 = []; Y3 = []
-TRACES0 = []; TRACES1 = []; TRACES2 = []; TRACES3 = []
+Y0 = []; Y1 = []
+TRACES0 = []; TRACES1 = []
 
 # Layout of the app
 app.layout = app_layouts.layout_control
@@ -78,13 +78,11 @@ def update_figure_send_controls(n, target_gap, target_speed,
 
     X.append(datetime.now())
     Y0.append(target_gap)
-    Y1.append(target_speed)
-    Y3.append(CAN_VARIABLES[0])
-
+    Y1.append(CAN_VARIABLES[1])
     # Check if the gap has become zero and take the previous value
     if CAN_VARIABLES[1] < 1.2:
-        CAN_VARIABLES[1] = Y2[-1]
-    Y2.append(CAN_VARIABLES[1])
+        CAN_VARIABLES[1] = Y1[-1]
+    Y1.append(CAN_VARIABLES[1])
 
     # Control Input
     if car_position == 'Following':
@@ -110,8 +108,6 @@ def update_figure_send_controls(n, target_gap, target_speed,
         X.pop(0)
         Y0.pop(0)
         Y1.pop(0)
-        Y2.pop(0)
-        Y3.pop(0)
 
     TRACES0 = go.Scatter(
         x = X,
@@ -123,22 +119,10 @@ def update_figure_send_controls(n, target_gap, target_speed,
         x = X,
         y = Y1,
         mode = 'lines+markers',
-        name = 'target_speed_mph'
-	)
-    TRACES2 = go.Scatter(
-        x = X,
-        y = Y2,
-        mode = 'lines+markers',
         name = 'real_gap_m'
 	)
-    TRACES3 = go.Scatter(
-        x = X,
-        y = Y3,
-        mode = 'lines+markers',
-        name = 'real_speed_mph'
-	)
     return {
-		'data': [TRACES0, TRACES1, TRACES2, TRACES3]
+		'data': [TRACES0, TRACES1]
 	}
 
 @app.callback(
@@ -168,8 +152,8 @@ def read_can(n):
 				if msg['lidar_channel'] == 4:
 					gap = msg['lidar_distance_m']
 					CAN_VARIABLES[1] = gap
-    # Clear the buffer of the CAN buses that we use
-    PANDA.can_clear(0xFFFF)
+        # Clear the buffer of the CAN buses that we use
+        PANDA.can_clear(0xFFFF)
 
 # Run the app in local server
 if __name__ == '__main__':
