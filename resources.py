@@ -14,7 +14,7 @@ def get_panda_id(car_name, option):
         if option == 'recv':
             return '53002c000c51363338383037'
         elif option == 'send':
-            return '240050000c51363338383037'
+            return '4e0046000651363038363036'
         else:
             raise ValueError("Please introduce a valid option: recv - send")
     elif car_name == 'ford_f150':
