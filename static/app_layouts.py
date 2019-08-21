@@ -51,7 +51,7 @@ def layout_viz():
                                             }
                                         ),
                         ], className = 'row', style={'padding': 20})
-                    ], className = 'six columns'),
+                    ], className = 'five columns'),
 
                     html.Div([
                         html.Div([
@@ -76,7 +76,7 @@ def layout_viz():
                                             }
                                         ),
                         ], className = 'row', style={'padding': 20})
-                    ], className = 'six columns'),
+                    ], className = 'five columns'),
                 ], className = 'row')
             ])
 
