@@ -22,7 +22,7 @@ from gps_ublox.gps import lat_longitude_from_serial
 from resources import get_nidaqmx_dev_name, get_panda_id
 
 def can_logger(car_dbc = None, leddar_dbc = None, port = None,
-               sample_time = 0.2, filename = None):
+               sample_time = 0.2, filename = None, ni_device = 'Dev1'):
 
     try:
         print("Trying to connect to Panda over USB...")
@@ -62,7 +62,6 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
         df = pd.DataFrame(columns = columns)
         rel_time = 0
         dt = sample_time
-        device = get_nidaqmx_dev_name()
 
         while True:
             time.sleep(dt)
@@ -140,6 +139,7 @@ if __name__ == "__main__":
 
     # Get the panda port that is used to recv data: it must have GPS
     panda_port = get_panda_id('mazda_cx9', 'recv')
+    device = get_nidaqmx_dev_name()
 
     can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2,
-               port = panda_port, filename = 'mazda_cx9_preliminary_test')
+               port = panda_port, filename = 'mazda_cx9_preliminary_test', ni_device = device)
