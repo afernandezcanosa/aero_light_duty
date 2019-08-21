@@ -107,9 +107,9 @@ def can_logger(car_dbc = None, leddar_dbc = None, port = None,
 
     except KeyboardInterrupt:
         if filename == None:
-            filename = datetime.now().strftime("%Y%m%d%H%M%S") + 'output.csv'
+            filename = datetime.now().strftime("%Y%m%d%H%M%S") + '_output.csv'
         else:
-            filename = datetime.now().strftime("%Y%m%d%H%M%S") + filename + '.csv'
+            filename = datetime.now().strftime("%Y%m%d%H%M%S") +  '_' + filename + '.csv'
         df.to_csv(filename, index = False)
 
         # Print and plot results in the screen
