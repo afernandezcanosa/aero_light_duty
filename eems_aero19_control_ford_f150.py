@@ -18,10 +18,9 @@ from datetime import datetime
 import nidaqmx
 
 # Import classes, methods, and functions from custom libraries
-from resources import get_panda_id
 from static import app_layouts
 from pedal_models.pedal_vs_speed_accel import PedalModel as PM
-from resources import get_nidaqmx_dev_name
+from resources import get_nidaqmx_dev_name, get_panda_id, visualization_props
 
 # Create the app and assign excepctions
 app = dash.Dash()
@@ -55,6 +54,7 @@ LEDDAR_DBC = cantools.database.load_file(leddar)
 CAN_VARIABLES = []
 PEDAL_MODEL = PM('ford_f150')
 DEV = get_nidaqmx_dev_name()
+PROPS_VIS = visualization_props()
 X = []
 Y0 = []; Y1 = []
 TRACES0 = []; TRACES1 = []
@@ -104,7 +104,7 @@ def update_figure_send_controls(n, target_gap, target_speed,
         task.ao_channels.add_ao_voltage_chan(DEV + "/ao1")
         task.write([v0, v1], auto_start=True)
 
-    if len(X) >= 100:
+    if len(X) >= PROPS_VIS['points_per_plot']:
         X.pop(0)
         Y0.pop(0)
         Y1.pop(0)
