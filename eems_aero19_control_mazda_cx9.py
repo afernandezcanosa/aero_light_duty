@@ -75,10 +75,10 @@ app.layout = app_layouts.layout_control(PROPS_VIS)
 def update_figure_send_controls(n, target_gap, target_speed,
                                 kp, kd, max_accel, min_accel,
                                 car_position):
+    global X, Y0, Y1, CAN_VARIABLES
 
     X.append(datetime.now())
     Y0.append(target_gap)
-    Y1.append(CAN_VARIABLES[1])
     # Check if the gap has become zero and take the previous value
     if CAN_VARIABLES[1] < 1.2:
         CAN_VARIABLES[1] = Y1[-1]
