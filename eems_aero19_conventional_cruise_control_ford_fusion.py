@@ -70,6 +70,7 @@ app.layout = app_layouts.layout_control_cruise_control
       Input('max_accel', 'value'),
       Input('min_accel', 'value')])
 def update_figure_send_controls(n, target_speed, kp, max_accel, min_accel):
+    global SPEED
 
     X.append(datetime.now())
     Y0.append(target_speed)
@@ -118,7 +119,7 @@ def update_figure_send_controls(n, target_speed, kp, max_accel, min_accel):
      Output('read_can', 'value'),
     [Input('refresh', 'n_intervals')])
 def read_can(n):
-	global CAR_DBC, LEDDAR_DBC, CAN_VARIABLES, PANDA
+	global CAR_DBC, LEDDAR_DBC, CAN_VARIABLES, PANDA, SPEED
 
 	can_recv = []
 	can_recv = PANDA.can_recv()
