@@ -33,8 +33,8 @@ def get_panda_id(car_name, option):
             raise ValueError("Please introduce a valid option: recv - send")
     else:
         raise ValueError("Please introduce a valid vehicle")
-        
-		
+
+
 def can_recv_to_dict(can_recv):
 	# Convert to dictionary
 	can_recv_dict = {}
@@ -42,11 +42,12 @@ def can_recv_to_dict(can_recv):
 		can_recv_dict[address] = dat
 
 	return can_recv_dict
-	
+
 def visualization_props():
 	" Specifies generic properties of the real-time dash visualizations "
 	props = {}
 	props['points_per_plot'] = 25
+    props['refresh_rate'] = 200 # miliseconds
 	return props
 
 if __name__ == "__main__":

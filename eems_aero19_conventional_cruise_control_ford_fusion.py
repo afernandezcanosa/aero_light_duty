@@ -60,7 +60,7 @@ Y0 = []; Y1 = []
 TRACES0 = []; TRACES1 = []
 
 # Layout of the app
-app.layout = app_layouts.layout_control_cruise_control
+app.layout = app_layouts.layout_control_cruise_control(PROPS_VIS)
 
 @app.callback(
      Output('live_update_graph', 'figure'),

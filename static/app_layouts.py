@@ -6,7 +6,7 @@ import dash_html_components as html
 import dash_core_components as dcc
 import plotly.graph_objs as go
 
-def layout_viz():
+def layout_viz(vis_props):
     return  html.Div([
                 html.Div([
                     html.H1('EEMS Aero - Visualization display')
@@ -19,7 +19,7 @@ def layout_viz():
 
                 dcc.Interval(
                     id = 'refresh',
-                    interval = 100,
+                    interval = vis_props['refresh_rate'],
                     n_intervals = 0
                 ),
 
@@ -80,7 +80,7 @@ def layout_viz():
                 ], className = 'row')
             ])
 
-def layout_control():
+def layout_control(vis_props):
 
     colors = {
         'background': '#c2f0c2',
@@ -97,7 +97,7 @@ def layout_control():
 
                 dcc.Interval(
                     id = 'refresh',
-                    interval = 100,
+                    interval = vis_props['refresh_rate'],
                     n_intervals = 0
                 ),
 
@@ -235,7 +235,7 @@ def layout_control():
 
             ])
 
-def layout_control_cruise_control():
+def layout_control_cruise_control(vis_props):
 
     colors = {
         'background': '#c2f0c2',
@@ -252,7 +252,7 @@ def layout_control_cruise_control():
 
                 dcc.Interval(
                     id = 'refresh',
-                    interval = 100,
+                    interval = vis_props['refresh_rate'],
                     n_intervals = 0
                 ),
 
