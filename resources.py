@@ -44,11 +44,11 @@ def can_recv_to_dict(can_recv):
 	return can_recv_dict
 
 def visualization_props():
-	" Specifies generic properties of the real-time dash visualizations "
+    " Specifies generic properties of the real-time dash visualizations "
     props = {}
     props['points_per_plot'] = 25
     props['refresh_rate'] = 200 # miliseconds
-	return props
+    return props
 
 if __name__ == "__main__":
     device = get_nidaqmx_dev_name()
