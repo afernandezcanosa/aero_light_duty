@@ -45,8 +45,8 @@ def can_recv_to_dict(can_recv):
 
 def visualization_props():
 	" Specifies generic properties of the real-time dash visualizations "
-	props = {}
-	props['points_per_plot'] = 25
+    props = {}
+    props['points_per_plot'] = 25
     props['refresh_rate'] = 200 # miliseconds
 	return props
 
