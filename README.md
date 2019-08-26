@@ -11,7 +11,7 @@ It is written in python and uses commercial hardware.
      style="float: left; margin-right: 10px"
 	 width="134"
 	 height="200"/>
-	 
+
 A 2D lidar with 8 different segments and a range up to 80 meters in the most optimal conditions with reflective tape. It is manufactured and commercialized by [LeddarTech](https://leddartech.com/). Their measurements can be read by USB or CAN (it has one CAN bus). Therefore, it is a good option for automotive applications where the CAN protocol is widely used.
 
 
@@ -24,9 +24,10 @@ Before using the lidar with CAN protocol with larger longitudinal range, some se
 |:-----------------:|:--------------------------------:|
 |  CAN Baud rate    |             500 kbps             |
 |  Serial Baud rate |               9600               |
-|  Accumulation     |                8                 |
-| Oversampling      |                8                 | 
+|  Accumulation     |                64                |
+| Oversampling      |                16                |
 | Points            |                60                |    
+| Segments Enabled  |           Two centrals           |
 
 ### 1.2. National Instruments analog I/O device
 
@@ -45,23 +46,23 @@ This National Instrument device is connected to a laptop through USB and is used
      style="float: left; margin-right: 10px"
 	 width="250"
 	 height="166"/>
-	 
+
 The Grey Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. Furthermore, the grey panda can read high-precission GPS coordinates via its serial port. Therefore, the grey panda is used to collect data.
-	 
+
 #### 1.3.2. White Panda CAN interface
 
 <img src="https://github.com/afernandezcanosa/aero_light_duty/blob/master/images/white_panda.jpeg"
      style="float: left; margin-right: 10px"
 	 width="200"
 	 height="200"/>
-	 
-The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device. 
+
+The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is able to communicate with the car via the CAN protocol. It has three different CAN buses that can be used and is connected to the laptop via USB. As the white panda does not read GPS coordinates, it is used to read the important CAN signals from the car: vehicle speed, distance with preceding vehicle, etc. send them to the laptop so that it can send voltage signals via the Nidaq-MX device.
 
 ### 1.4. Panda ports list
 
 * Mazda CX9
   * Read CAN data: 53002c000c51363338383037
-  * Send commands and read CAN data: 4e0046000651363038363036 
+  * Send commands and read CAN data: 4e0046000651363038363036
 * Ford F150
   * Read CAN data: 360024000c51363338383037
   * Send commands and read CAN data: 26003f000651363038363036
@@ -88,7 +89,7 @@ See shared folder
 |:----------------:|:---------------------------------:|:-----------------------------------------:|
 |  2016 Mazda CX9  |  ```eems_aero19_visualization_mazda_cx9.py```  |     Successfully tested and integrated    |
 |  2017 Ford F150  |  ```eems_aero19_visualization_ford_f150.py```  |     Successfully tested and integrated 	|
-| 2011 Ford Fusion | ```eems_aero19_visualization_ford_fusion.py``` |        						  	 	    |
+| 2011 Ford Fusion | ```eems_aero19_visualization_ford_fusion.py``` |     Successfully tested and integrated 	|    						  	 	    
 
 ### 3.2. Data visualization and cruise control
 
@@ -114,3 +115,7 @@ To successfully perform these tests, we need accurate measurements of the 2D lid
 * As we only care about the longitudinal position of the vehicles (gap), we can select only the two central channels. This way, we can increase the measurement rate and speed up both data loggers and control/visualizations.
 * Play around with accumulation/oversampling/points settings in order to obtain a measurement range of around 70 meters with high accuracy.
 
+### 4.4. Lidar 655.35 distance measurement in Ford Fusion
+
+During our tests, the lidar mounted in the Ford Fusion, frequently measures a distance of 655.35 meters, which, including the scaling factor, corresponds with a CAN message = 0xFFFF.
+We will run a test with the company to troubleshoot the unit. It looks a power issue.
