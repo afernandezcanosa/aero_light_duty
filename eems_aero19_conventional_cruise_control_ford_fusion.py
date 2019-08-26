@@ -126,7 +126,7 @@ def read_can(n):
 
 	if can_recv != []:
 		for address, _, dat, _  in can_recv:
-			if address == 0x217:
+			if address == 0x215:
 				msg = CAR_DBC.decode_message(address, dat)
 				speed = (msg['Veh_wheel_speed_RR_CAN_kph_'] +
 						  msg['Veh_wheel_speed_FL_CAN_kph_'] +
