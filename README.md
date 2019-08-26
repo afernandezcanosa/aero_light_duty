@@ -100,22 +100,33 @@ See shared folder
 | 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |     Pedal model done and tested    |
 
 
-## 4. Lessons learned
+## 4. Axle-torque scaling
 
-### 4.1. F150 Pedal Model Issues
+|      Vehicle     |                Voltage (V)        |                   Axle Torque (N.m)        |
+|:----------------:|:---------------------------------:|:------------------------------------------:|
+|  2016 Mazda CX9  |  10                               |     2000                                   |
+|  2017 Ford F150  |  10                               |  	1000	                                |
+| 2011 Ford Fusion | 10                                |     3389.5                                 |
+
+
+## 5. Lessons learned
+
+### 5.1. F150 Pedal Model Issues
 The accelerator pedal of the F150 is very sensitive and small perturbation seems to affect the performance of the "voltage vs pedal" model. In some cases, for small pedal percentages (which are the ones that we can control), we can even lose the control of the accelerator pedal without the possibility of reversing the current with the diode.
 
-### 4.2. Temperature effects of the diode voltage drop
+### 5.2. Temperature effects of the diode voltage drop
 The temperature of the circuit affects the voltage drop of the diode and therefore, we can lose the control of the accelerator pedal.
 
-### 4.3. Lidar settings and measurements
+### 5.3. Lidar settings and measurements
 To successfully perform these tests, we need accurate measurements of the 2D lidar. A trade-off between long enough range, accuracy, reliability, and measurement rate is required. In order to do so, the settings of the lidar must be modified:
 
 * We need a narrow strip of tape on the rear-back of the vehicles that we want to test
 * As we only care about the longitudinal position of the vehicles (gap), we can select only the two central channels. This way, we can increase the measurement rate and speed up both data loggers and control/visualizations.
 * Play around with accumulation/oversampling/points settings in order to obtain a measurement range of around 70 meters with high accuracy.
 
-### 4.4. Lidar 655.35 distance measurement in Ford Fusion
+### 5.4. Lidar 655.35 distance measurement in Ford Fusion
 
 During our tests, the lidar mounted in the Ford Fusion, frequently measures a distance of 655.35 meters, which, including the scaling factor, corresponds with a CAN message = 0xFFFF.
 We will run a test with the company to troubleshoot the unit. It looks a power issue.
+
+
