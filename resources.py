@@ -48,6 +48,16 @@ def visualization_props():
     props = {}
     props['points_per_plot'] = 25
     props['refresh_rate'] = 200 # miliseconds
+
+    # Maximum and minimum acceleration rates
+    props['max_accel'] = 0.8 # m/s^2
+    props['min_accel'] = -0.8 # m/s^2
+
+    # Gains of the controllers (tuned in Navistar tests 08-22-2019)
+    props['Kp_conv_cruise'] = 0.4 # Conventional cruise control
+    props['Kp'] = 0.10 # Gap control prop gain
+    props['Kd'] = 0.35 # Gap control der gain
+
     return props
 
 if __name__ == "__main__":
