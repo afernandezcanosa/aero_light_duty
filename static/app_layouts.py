@@ -173,7 +173,7 @@ def layout_control(vis_props):
                             dcc.Input(
                                 placeholder = 'Prop gain...',
                                 type = 'number',
-                                value = 0.2,
+                                value = vis_props['Kp'],
                                 id = 'prop_gain',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -188,7 +188,7 @@ def layout_control(vis_props):
                             dcc.Input(
                                 placeholder = 'Deriv gain...',
                                 type = 'number',
-                                value = 0.15,
+                                value = vis_props['Kd'],
                                 id = 'der_gain',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -207,7 +207,7 @@ def layout_control(vis_props):
                                 placeholder = 'Max acceleration...',
                                 type = 'number',
                                 id = 'max_accel',
-                                value = 0.3
+                                value = vis_props['max_accel']
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
@@ -222,7 +222,7 @@ def layout_control(vis_props):
                                 placeholder = 'Min acceleration...',
                                 type = 'number',
                                 id = 'min_accel',
-                                value = -0.2
+                                value = vis_props['min_accel']
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
@@ -293,7 +293,7 @@ def layout_control_cruise_control(vis_props):
                             dcc.Input(
                                 placeholder = 'Prop gain...',
                                 type = 'number',
-                                value = 0.2,
+                                value = vis_props['Kp_conv_cruise'],
                                 id = 'prop_gain',
                             ),
                         ], className = 'row', style={'padding': 5}),
@@ -312,7 +312,7 @@ def layout_control_cruise_control(vis_props):
                                 placeholder = 'Max acceleration...',
                                 type = 'number',
                                 id = 'max_accel',
-                                value = 0.3
+                                value = vis_props['max_accel']
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
@@ -327,7 +327,7 @@ def layout_control_cruise_control(vis_props):
                                 placeholder = 'Min acceleration...',
                                 type = 'number',
                                 id = 'min_accel',
-                                value = -0.2
+                                value = vis_props['min_accel']
                             ),
                         ], className = 'row', style={'padding': 5}),
                     ], className = 'three columns'),
