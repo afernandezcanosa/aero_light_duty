@@ -129,7 +129,7 @@ To successfully perform these tests, we need accurate measurements of the 2D lid
 During our tests, the lidar mounted in the Ford Fusion, frequently measures a distance of 655.35 meters, which, including the scaling factor, corresponds with a CAN message = 0xFFFF.
 We will run a test with the company to troubleshoot the unit. It looks a power issue.
 
-** UPDATE: It wasn't a problem of the Ford Fusion. The problem was sensor 1 that has been discarded. The rest of the sensors don't have this issue **
+**UPDATE: It wasn't a problem of the Ford Fusion. The problem was sensor 1 that has been discarded. The rest of the sensors don't have this issue**
 
 ### 5.5. Gains of the controllers
 
