@@ -16,7 +16,7 @@ from panda import Panda
 from os.path import dirname, abspath, join
 
 # Import classes, methods, and functions from custom libraries
-from resources import get_panda_id
+from resources import get_panda_id, visualization_props
 from static import app_layouts
 
 # Create the app and assign excepctions
@@ -49,16 +49,17 @@ car = join(base_path,'dbc_files/ford_f150_2017.dbc')
 CAR_DBC = cantools.database.load_file(car)
 LEDDAR_DBC = cantools.database.load_file(leddar)
 CAN_VARIABLES = []
+PROPS_VIS = visualization_props()
 
 # Layout of the app
-app.layout = app_layouts.layout_viz
+app.layout = app_layouts.layout_viz(PROPS_VIS)
 
 @app.callback(
      Output('read_can', 'value'),
     [Input('refresh', 'n_intervals')])
 def read_can(n):
 	global CAR_DBC, LEDDAR_DBC, CAN_VARIABLES, PANDA
-
+   
 	can_recv = []
 	can_recv = PANDA.can_recv()
 	CAN_VARIABLES = [0,0]
