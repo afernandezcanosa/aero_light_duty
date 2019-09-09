@@ -129,6 +129,8 @@ To successfully perform these tests, we need accurate measurements of the 2D lid
 During our tests, the lidar mounted in the Ford Fusion, frequently measures a distance of 655.35 meters, which, including the scaling factor, corresponds with a CAN message = 0xFFFF.
 We will run a test with the company to troubleshoot the unit. It looks a power issue.
 
+** UPDATE: It wasn't a problem of the Ford Fusion. The problem was sensor 1 that has been discarded. The rest of the sensors don't have this issue **
+
 ### 5.5. Gains of the controllers
 
 We tested our controllers on Navistar and found the following parameters that minimize oscillations for the Ford Fusion and the Mazda CX9. We realized that far from the target point (gap, speed), the oscillations are extremely large, so before turning the APP override ON, approach the target point manually.
@@ -138,3 +140,7 @@ We tested our controllers on Navistar and found the following parameters that mi
 |  2016 Mazda CX9  |  0.8            |    -0.8         | 0.1       |    0.35    |
 |  2017 Ford F150  |                 |  	    	       |           |            |
 | 2011 Ford Fusion | 0.8             |     -0.8        |  0.1      |   0.35     |
+
+### 5.6. Correct angle of the lidars
+
+The 2D lidars seem to work better upside down. We tested them with the F150 and the Fusion inside Argonne.
