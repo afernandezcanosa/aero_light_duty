@@ -23,11 +23,16 @@ class PedalModel(object):
                           -1.67426622e-02, 1.04169336e+00, -2.43369234e-01,
                            4.63490229e-04, -9.14509267e-03, -2.10704875e-01, 1.55521523e-01]
 
+            self.ch0_coeffs = [0.7953, 2.83]
+            self.ch1_coeffs = [0.3981, 1.42]
+            
+            """ Model with diodes and correction 
             self.ch0_coeffs = [1.4283, 3.17]
             self.ch1_coeffs = [0.8317, 1.49]
 
             self.ch0_coeffs_corr = [1.3974, 3.51]
             self.ch1_coeffs_corr = [0.772, 0.0]
+            """
 
         elif self.car == 'ford_fusion':
             self.coeffs = [-1.58738238e+00,
@@ -69,9 +74,11 @@ class PedalModel(object):
         v_0 = self.ch0_coeffs[0] + self.ch0_coeffs[1]*pedal
         v_1 = self.ch1_coeffs[0] + self.ch1_coeffs[1]*pedal
 
+        """ Model with diodes and correction
         if self.car == 'ford_f150' and pedal_per < 11:
             v_0 = self.ch0_coeffs_corr[0] + self.ch0_coeffs_corr[1]*pedal
             v_1 = self.ch1_coeffs_corr[0] + self.ch1_coeffs_corr[1]*pedal
+        """
 
         return v_0, v_1
 
