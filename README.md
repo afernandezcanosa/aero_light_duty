@@ -79,6 +79,21 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
 |  2017 Ford F150  |  ```eems_aero19_logger_ford_f150.py```  | Successfully tested and integrated      |
 | 2011 Ford Fusion | ```eems_aero19_logger_ford_fusion.py``` |   Successfully tested (except lidar)    |
 
+### 2.1. How to use the code?
+
+```python
+# Especify the filename in the logger of the car and the sample time in seconds
+filename = 'mazda_cx9_navistar_tests'
+can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2,
+		   port = panda_port, filename = filename, ni_device = device)
+```
+
+```
+# Run the code in the terminal
+python eems_aero19_logger_mazda_cx9.py
+```
+
+
 ## 3. Data visualization and control
 
 See shared folder
