@@ -81,6 +81,7 @@ The White Panda is a CAN shield sold by [CommaAI](https://comma.ai/) that is abl
 
 ### 2.1. How to use the code?
 
+a. Filename
 ```python
 # Especify the filename in the logger of the car and the sample time in seconds
 filename = 'mazda_cx9_navistar_tests'
@@ -88,8 +89,8 @@ can_logger(car_dbc = car_dbc, leddar_dbc = leddar_dbc, sample_time = 0.2,
 		   port = panda_port, filename = filename, ni_device = device)
 ```
 
+b. Run the code of the particular vehicle
 ```
-# Run the code in the terminal
 python eems_aero19_logger_mazda_cx9.py
 ```
 
@@ -114,6 +115,18 @@ See shared folder
 |  2017 Ford F150  |  ```eems_aero19_control_ford_f150.py```  |  	Pedal model done and tested	   |
 | 2011 Ford Fusion | ```eems_aero19_control_ford_fusion.py``` |     Pedal model done and tested    |
 
+
+1. In a different terminal, run the controller:
+```
+python eems_aero19_control_mazda_cx9.py
+```
+
+2. Open in a browser the local url:
+```
+127.0.0.1:8050
+```
+
+3. In the browser visualization, specify target lead speed and target gap. Remember that voltages will be sent automatically once the code is run. So, the switch needs to be turned on for the car to start receiving control inputs.
 
 ## 4. Axle-torque scaling
 
