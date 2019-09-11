@@ -182,3 +182,6 @@ To make the panda device works on Windows, you need to use USB 2.0 ports instead
 ### 6.2. Issues with Panda python library
 
 ```libsusb.py``` library sometimes fails and you need to put a ```.dll``` file into the appropriate folder from where python.exe is run. Please, follow [this GitHub thread](https://github.com/vpelletier/python-libusb1/issues/7) to install libusb-1.0 dll.
+
+### 6.3. National Instruments drivers
+Follow [this guide](https://www.ni.com/en-us/support/downloads/drivers/download.ni-daqmx.html#311818)
