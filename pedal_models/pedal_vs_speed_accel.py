@@ -1,6 +1,20 @@
 #!/usr/bin/env python
 from __future__ import print_function
 
+"""
+This class includes the pedal models of the three vehicles studied. Accelerator
+pedal as a function of the vehicle speed and the vehicle acceleration as well as
+the analog voltages as a function of the accelerator pedal. 
+
+    1. self.coeffs -> Accel_pedal = Accel_pedal(Veh_speed, Veh_accel)
+    2. self.ch0_coeffs -> APP_1 = APP_1(Accel_pedal)
+    3. self.ch1_coeggs -> APP_2 = APP_2(Accel_pedal)
+    
+Note 1:  that we try to replicate the voltages that are sent from the Accelerator Pedal
+to the Powertrain Control Module (PCM)
+
+Note 2: Accel pedal models were fitted by using UDDS and HWY dyno cycles 
+"""
 
 class PedalModel(object):
 
@@ -83,7 +97,6 @@ class PedalModel(object):
         return v_0, v_1
 
 if __name__ == "__main__":
-
     mph_to_mps = 0.44704
 
     cars = ['mazda_cx9', 'ford_f150', 'ford_fusion']
