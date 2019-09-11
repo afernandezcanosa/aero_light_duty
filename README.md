@@ -172,3 +172,13 @@ We tested our controllers on Navistar and found the following parameters that mi
 ### 5.6. Correct angle of the lidars
 
 The 2D lidars seem to work better upside down. We tested them with the F150 and the Fusion inside Argonne.
+
+## 6. Hardware/Drivers issues
+
+### 6.1. PANDA on Windows
+
+To make the panda device works on Windows, you need to use USB 2.0 ports instead of USB 3.0. Modern laptops do not use to have USB 2.0. ports, so you may need to downgrade them through the ```BIOS``` of the system.
+
+### 6.2. Issues with Panda python library
+
+```libsusb.py``` library sometimes fails and you need to put a ```.dll``` file into the appropriate folder from where python.exe is run. Please, follow [this GitHub thread](https://github.com/vpelletier/python-libusb1/issues/7) to install libusb-1.0 dll.
