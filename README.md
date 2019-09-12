@@ -152,7 +152,7 @@ To successfully perform these tests, we need accurate measurements of the 2D lid
 * As we only care about the longitudinal position of the vehicles (gap), we can select only the two central channels. This way, we can increase the measurement rate and speed up both data loggers and control/visualizations.
 * Play around with accumulation/oversampling/points settings in order to obtain a measurement range of around 70 meters with high accuracy.
 
-### 5.4. Lidar 655.35 distance measurement in Ford Fusion
+### 5.4. Lidar 655.35 distance measurement in Ford Fusion (Lidar 1)
 
 During our tests, the lidar mounted in the Ford Fusion, frequently measures a distance of 655.35 meters, which, including the scaling factor, corresponds with a CAN message = 0xFFFF.
 We will run a test with the company to troubleshoot the unit. It looks a power issue.
@@ -172,6 +172,7 @@ We tested our controllers on Navistar and found the following parameters that mi
 ### 5.6. Correct angle of the lidars
 
 The 2D lidars seem to work better upside down. We tested them with the F150 and the Fusion inside Argonne.
+
 
 ## 6. Hardware/Drivers issues
 
