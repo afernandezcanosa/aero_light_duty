@@ -94,7 +94,7 @@ def display_gap(n):
                 if msg['lidar_channel'] == 4:
                     # Clear the buffer of the CAN buses that we use
                     PANDA.can_clear(0xFFFF)
-                    return msg['lidar_distance_m']
+                    return round(msg['lidar_distance_m'],2)
     else:
         return '-'
 
