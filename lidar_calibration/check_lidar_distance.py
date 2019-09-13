@@ -81,7 +81,7 @@ app.layout = html.Div([
 @app.callback(
      Output('display_gap', 'children'),
     [Input('refresh', 'n_intervals')])
-def display_gap(gap):
+def display_gap(n):
     can_recv = []
     can_recv = PANDA.can_recv()
     
