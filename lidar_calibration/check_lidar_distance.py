@@ -61,7 +61,7 @@ app.layout = html.Div([
         interval = 200,
         n_intervals = 0
     ),
-            
+
     html.Div([
         html.Div([
             html.Label('Gap (m):',
@@ -71,20 +71,20 @@ app.layout = html.Div([
         ], className = 'row', style={'padding': 5}),
         html.H1(id='display_gap',
                 style = {'color': '#262626',
-                         'fontSize': 140})            
+                         'fontSize': 180})
     ], className = 'row', style = {'textAlign': 'center'})
 
-  
+
 ])
-    
-    
+
+
 @app.callback(
      Output('display_gap', 'children'),
     [Input('refresh', 'n_intervals')])
 def display_gap(n):
     can_recv = []
     can_recv = PANDA.can_recv()
-    
+
     if can_recv != []:
         for address, _, dat, _  in can_recv:
             if (address == 0x752 or address == 0x753 or address == 0x754 or
