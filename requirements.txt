@@ -1,7 +1,7 @@
 matplotlib==2.2.4
 pandacan==0.0.8
 pandas==0.24.2
-numpy==1.16.3
+numpy==1.22.0
 cantools==32.19.0
 dash==1.1.1
 dash_core_components==1.1.1
