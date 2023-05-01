@@ -7,7 +7,7 @@ dash==1.1.1
 dash_core_components==1.1.1
 dash_daq==0.1.7
 dash_html_components==1.0.0
-Flask==1.1.1
+Flask==2.3.2
 nidaqmx==0.5.7
 panda==0.3.1
 plotly==4.1.0
